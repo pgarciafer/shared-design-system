@@ -1,5 +1,22 @@
 /* shared-design-system/css/style.css */
 
+
+/* 1. Define the font */
+@font-face {
+    font-family: 'MTN_Montserrat_Font'; /* Give it a name you will recognize */
+    /* Use the ABSOLUTE URL to ensure it works across different apps */
+    src: url('https://pgarciafer.github.io/shared-design-system/fonts/MTNfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 2. Apply the font to your variables */
+:root {
+    /* Update your existing variable or create a new one */
+    --font-primary: 'MTN_Montserrat_Font', Inter, -apple-system, sans-serif;
+}
+
+
 :root {
   /* --- PALETTE EXTRACTED FROM MODEM.HTML --- */
   
