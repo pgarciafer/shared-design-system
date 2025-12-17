@@ -1,69 +1,71 @@
 /* shared-design-system/css/style.css */
 
-
 /* 1. Define the font */
 @font-face {
-    font-family: 'MTN_Montserrat_Font'; /* Give it a name you will recognize */
-    /* Use the ABSOLUTE URL to ensure it works across different apps */
-    src: url('https://pgarciafer.github.io/shared-design-system/fonts/MTNfontWRONG.ttf') format('truetype');
+    font-family: 'CorporateFont'; 
+    /* Pointing to the CORRECT file you mentioned */
+    src: url('https://pgarciafer.github.io/shared-design-system/fonts/MTNfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-/* 2. Apply the font to your variables */
 :root {
-    /* Update your existing variable or create a new one */
-    --font-primary: 'MTN_Montserrat_Font';
+    /* 2. Define the variable using the new name */
+    /* We add sans-serif as a safety fallback */
+    --font-primary: 'CorporateFont', sans-serif;
+
+    /* --- PALETTE EXTRACTED FROM MODEM.HTML --- */
+    
+    /* The Main Blue (#1B5087) */
+    --mtn-blue: #1B5087; 
+    /* The Secondary Sky Blue (#58A0D4) */
+    --mtn-sky: #58A0D4;  
+    /* The Gold Highlight (#EBB020) */
+    --mtn-gold: #EBB020; 
+    /* Dark Blue Background (#08192B) */
+    --mtn-dark: #08192B; 
+    /* Neutral Background (#EFEFEF) */
+    --mtn-neutral: #EFEFEF;
+    /* Text Color (#131517) */
+    --mtn-text: #131517;
+
+    /* --- MAPPING TO YOUR APPS' EXISTING VARIABLES --- */
+    
+    /* Primary buttons and headers now use MTN Blue */
+    --primary-color: var(--mtn-blue);
+    
+    /* Hover states use the darker MTN Dark or Sky depending on preference */
+    --primary-hover: var(--mtn-dark);
+    
+    /* Secondary buttons use the Sky Blue */
+    --secondary-color: var(--mtn-sky);
+    --secondary-hover: #468bc0; /* Slightly darker sky */
+    
+    /* Backgrounds */
+    --bg-color: var(--mtn-neutral);
+    --container-bg: #ffffff;
+    
+    /* Text */
+    --text-color: var(--mtn-text);
+    --text-muted: #6c757d;
+    
+    /* Borders and Accents */
+    --border-color: #dee2e6;
+    --accent-color: var(--mtn-gold); /* Used for that bottom border in header */
+    
+    /* Utility Colors */
+    --danger-color: #dc3545;
+    --danger-hover: #c82333;
+    --success-color: #28a745;
 }
 
-
-:root {
-  /* --- PALETTE EXTRACTED FROM MODEM.HTML --- */
-  
-  /* The Main Blue (#1B5087) */
-  --mtn-blue: #1B5087; 
-  /* The Secondary Sky Blue (#58A0D4) */
-  --mtn-sky: #58A0D4;  
-  /* The Gold Highlight (#EBB020) */
-  --mtn-gold: #EBB020; 
-  /* Dark Blue Background (#08192B) */
-  --mtn-dark: #08192B; 
-  /* Neutral Background (#EFEFEF) */
-  --mtn-neutral: #EFEFEF;
-  /* Text Color (#131517) */
-  --mtn-text: #131517;
-
-  /* --- MAPPING TO YOUR APPS' EXISTING VARIABLES --- */
-  
-  /* Primary buttons and headers now use MTN Blue */
-  --primary-color: var(--mtn-blue);
-  
-  /* Hover states use the darker MTN Dark or Sky depending on preference */
-  --primary-hover: var(--mtn-dark);
-  
-  /* Secondary buttons use the Sky Blue */
-  --secondary-color: var(--mtn-sky);
-  --secondary-hover: #468bc0; /* Slightly darker sky */
-  
-  /* Backgrounds */
-  --bg-color: var(--mtn-neutral);
-  --container-bg: #ffffff;
-  
-  /* Text */
-  --text-color: var(--mtn-text);
-  --text-muted: #6c757d;
-  
-  /* Borders and Accents */
-  --border-color: #dee2e6;
-  --accent-color: var(--mtn-gold); /* Used for that bottom border in header */
-  
-  /* Utility Colors */
-  --danger-color: #dc3545;
-  --danger-hover: #c82333;
-  --success-color: #28a745;
+/* 3. APPLY FONT GLOBALLY */
+/* This ensures the font is used by default on any page linked to this CSS */
+body {
+    font-family: var(--font-primary);
 }
 
-/* --- SHARED HEADER STYLE (Matches Modem.html) --- */
+/* --- SHARED HEADER STYLE --- */
 .shared-header {
   display: flex;
   flex-direction: column;
@@ -72,7 +74,7 @@
   text-align: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  /* The signature Gold border from modem.html */
+  /* The signature Gold border */
   border-bottom: 4px solid var(--mtn-gold); 
   gap: 1rem;
 }
@@ -92,8 +94,9 @@
 }
 
 .shared-header h1 {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 1.875rem; /* 3xl equivalent */
+  /* Updated to use your custom font variable */
+  font-family: var(--font-primary);
+  font-size: 1.875rem; 
   font-weight: 700;
   color: var(--mtn-blue);
   margin: 0;
