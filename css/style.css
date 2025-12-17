@@ -4,7 +4,7 @@
 @font-face {
     font-family: 'CorporateFont'; 
     /* Pointing to the CORRECT file you mentioned */
-    src: url('https://pgarciafer.github.io/shared-design-system/fonts/MTNfont.ttf') format('truetype');
+    src: url('https://pgarciafer.github.io/shared-design-system/fonts/MTNfontWRONG.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
